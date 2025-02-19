@@ -16,10 +16,10 @@ def chat_with_ai(user_input):
     history.append({"role": "user", "content": user_input})
 
     stream = client.chat.completions.create(
-        model="llama3-8b",  # Adjust to your preferred model
+        model="mixtral-8x7b-32768",  # Adjust to your preferred model
         messages=history,
         temperature=0.5,
-        max_completion_tokens=512,
+        max_completion_tokens=4096,
         stream=True,
     )
 
