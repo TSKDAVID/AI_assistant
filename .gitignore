@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/  # Or whatever your virtual environment folder is named
+venv/
+*.DS_Store  # For macOS
+.idea/      # For JetBrains IDEs
+*.log
