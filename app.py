@@ -54,24 +54,19 @@ send_button = tk.Button(input_frame, text="Send", bg=BTN_COLOR, fg="white", font
 send_button.pack(side="right")
 
 
-# **Function to Display User Messages**
 def send_message():
     message = user_input.get().strip()
     if message:
-        # Display user message
-        display_user_message(message)
-         # Extracts the actual string text
-        # Clear input field
-        user_input.delete(0, tk.END)
-        ai_response = chat_with_ai(message)
-       
+        display_user_message(message)  # Show user message immediately
+        user_input.delete(0, tk.END)   # Clear input field
+        
+        # Schedule AI response after UI updates
+        root.after(100, lambda: process_ai_response(message))
 
-
-
-        display_ai_message(ai_response)
-
-        # Scroll to the bottom
-        chat_display.yview("end")
+def process_ai_response(message):
+    ai_response = chat_with_ai(message)
+    display_ai_message(ai_response)
+    chat_display.yview("end")
 
 
 # **Function to Display AI Messages**

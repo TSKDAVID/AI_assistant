@@ -17,7 +17,7 @@ def chat_with_ai(user_input):
             }
         ],
 
-        model="llama-3.3-70b-versatile",
+        model="deepseek-r1-distill-llama-70b-specdec",
         temperature=0.5,
         max_completion_tokens=1024,
         top_p=1,
